@@ -56,8 +56,10 @@ while loop:
             Xspace[i][j] = 1
             turn = 0
         if win(Xspace, Ospace) != -1:
+            board(Xspace, Ospace)
             break
         count+=1
     if count >= 9:
+        board(Xspace, Ospace)
         print("\tNo one win.\n\tgame over....")
         break
