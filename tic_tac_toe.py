@@ -35,19 +35,29 @@ Ospace = [[0, 0, 0],
           [0, 0, 0],
           [0, 0, 0]]
 loop = True
+count = 0
 turn = 1 # 1 is for X and 0 is for O
 print("Your game is start: ")
 while loop:
+    print("____________________________")
     print("it is X's turn: ") if turn else print("it is O's turn: ")
+    print("____________________________\n")
     board(Xspace, Ospace)
     val = int(input("Enter the value b/w 0-8: "))
     i = int(val/3)
     j = int(val%3)
-    if turn == 0:
-        Ospace[i][j] = 1 if not Ospace[i][j] and Xspace[i][j] == 0 else print(f"{val} is already occupied")
-        turn = 1
+    if Ospace[i][j] or Xspace[i][j]:
+        print(f"{val} is already occupied")
     else:
-        Xspace[i][j] = 1 if Ospace[i][j] == 0 and Xspace[i][j] == 0 else print(f"{val} is already occupied")
-        turn = 0
-    if win(Xspace, Ospace) != -1:
+        if turn == 0:
+            Ospace[i][j] = 1
+            turn = 1
+        else:
+            Xspace[i][j] = 1
+            turn = 0
+        if win(Xspace, Ospace) != -1:
+            break
+        count+=1
+    if count >= 9:
+        print("\tNo one win.\n\tgame over....")
         break
