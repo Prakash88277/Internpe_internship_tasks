@@ -61,9 +61,6 @@ def drow_board():
     for c in range(COL_SIZE):
         for r in range(ROW_SIZE):
             pygame.draw.rect(display, (211, 211, 211), (c*BLOCK_SIZE, r*BLOCK_SIZE+BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE))
-            # imp = pygame.image.load("Patterna.png")
-            # imp = pygame.transform.scale(imp, (BLOCK_SIZE, BLOCK_SIZE))
-            # display.blit(imp, (c*BLOCK_SIZE, r*BLOCK_SIZE+BLOCK_SIZE))
             pygame.draw.circle(display, (194, 118, 118), (c*BLOCK_SIZE+BLOCK_SIZE/2, (r*BLOCK_SIZE+BLOCK_SIZE/2)+BLOCK_SIZE), int((BLOCK_SIZE/2)-5))
 
     for c in range(COL_SIZE):
